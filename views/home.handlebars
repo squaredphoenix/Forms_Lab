@@ -1,1 +1,31 @@
-<h1>Welcome to My Website</h1>
+<h1>Sign Up</h1>
+
+<form action="/register" method="post">
+    {{!-- person's name --}}
+    <label for="fullName">
+        Name:
+    </label>
+    <input type="text" id="fullName" name="fullName">
+    <br>
+    <br>
+
+    {{!-- email --}}
+    <label for="email">
+        Email:
+    </label>
+    <input type="email" id="email" name="email" required>
+    <br>
+    <br>
+
+    {{!-- Book --}}
+    <label for="book">
+        Books:
+    </label>
+    <input type="text"  id="book" name="book">
+    <br>
+    <br>
+
+    <button type="submit">
+        Sign Up
+    </button>
+</form>

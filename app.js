@@ -12,25 +12,40 @@ app.set('port', process.env.PORT || 3000);
 
 app.use(express.static(__dirname + '/public'));
 
+app.use(express.urlencoded());
 
-app.get('/', function(req, res) {
+app.get('/', function(req, res) 
+{
 
-	res.render('home'); 
+	res.render('home');
 });
+
+//form post
+app.post('/register', function(req, res)
+{
+	res.render('thanks', {
+		name: req.body.fullName,
+		book: req.body.book
+	}); 
+});
+
 // 404 catch-all handler (middleware)
-app.use(function(req, res, next){
+app.use(function(req, res, next)
+{
 	res.status(404);
 	res.render('404');
 });
 
 // 500 error handler (middleware)
-app.use(function(err, req, res, next){
+app.use(function(err, req, res, next)
+{
 	console.error(err.stack);
 	res.status(500);
 	res.render('500');
 });
 
-app.listen(app.get('port'), function(){
+app.listen(app.get('port'), function()
+{
   console.log( 'Express started on http://localhost:' +
     app.get('port') + '; press Ctrl-C to terminate.' );
 });
